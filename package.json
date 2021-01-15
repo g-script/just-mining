@@ -1,0 +1,43 @@
+{
+  "name": "just-mining",
+  "version": "0.0.1",
+  "description": "Node.js wrapper around Just Mining's API",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "lint": "standard src/*.js test/*.js",
+    "fix-lint": "npm run lint -- --fix",
+    "pretest": "npm run lint",
+    "test": "mocha -b",
+    "build": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-script/just-mining.git"
+  },
+  "keywords": [],
+  "author": "Nicolas Goudry <goudry.nicolas@gmail.com> (https://github.com/nicolas-goudry)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g-script/just-mining/issues"
+  },
+  "homepage": "https://github.com/g-script/just-mining#readme",
+  "dependencies": {
+    "aigle": "1.14.1",
+    "axios": "0.21.1",
+    "debug": "4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.12.10",
+    "@babel/core": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "dotenv": "8.2.0",
+    "mocha": "8.2.1",
+    "nock": "13.0.5",
+    "standard": "16.0.3"
+  }
+}
