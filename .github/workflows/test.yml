@@ -35,3 +35,5 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm test
+        env:
+          API_KEY: ${{secrets.JM_API_KEY}}
