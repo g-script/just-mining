@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         node: [10, 12, 14]
-        experimental: false
+        experimental: [false]
         include:
           - node: 15
             os: ubuntu-latest
