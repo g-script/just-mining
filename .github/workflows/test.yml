@@ -1,23 +1,11 @@
-name: Lint and test JS files
+name: Lint and test code
 
 on:
-  pull_request:
-    paths:
-      - "**.js"
   workflow_dispatch:
+  pull_request:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - run: npm ci
-      - run: npm run lint
   test:
-    needs: [lint]
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
@@ -29,11 +17,18 @@ jobs:
             os: ubuntu-latest
             experimental: true
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
-      - run: npm ci
-      - run: npm test
+          registry-url: https://registry.yarnpkg.com
+      - name: Install
+        run: yarn --frozen-lockfile
+      - name: Test
+        run: yarn test
         env:
           API_KEY: ${{secrets.JM_API_KEY}}
