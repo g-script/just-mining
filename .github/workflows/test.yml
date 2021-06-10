@@ -3,7 +3,7 @@ name: Lint and test JS files
 on:
   pull_request:
     paths:
-    - '**.js'
+      - "**.js"
   workflow_dispatch:
 
 jobs:
