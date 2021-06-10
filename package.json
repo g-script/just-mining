@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "lint": "standard src/**/*.js test/**/*.js",
-    "fix-lint": "npm run lint -- --fix",
-    "pretest": "npm run lint",
+    "fix-lint": "yarn lint --fix",
+    "pretest": "yarn lint",
     "test": "mocha -b",
     "build": "babel src --out-dir lib"
   },
