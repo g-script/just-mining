@@ -11,7 +11,10 @@
     "fix-lint": "yarn lint --fix",
     "pretest": "yarn lint",
     "test": "mocha -b",
-    "build": "babel src --out-dir lib"
+    "build": "babel src --out-dir lib",
+    "postinstall": "husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "repository": {
     "type": "git",
