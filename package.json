@@ -7,11 +7,19 @@
     "lib/**/*"
   ],
   "scripts": {
-    "lint": "standard src/**/*.js test/**/*.js",
-    "fix-lint": "yarn lint --fix",
-    "pretest": "yarn lint",
-    "test": "mocha -b",
-    "build": "babel src --out-dir lib"
+    "build": "babel src --out-dir lib",
+    "fix": "yarn fix:code && yarn fix:other",
+    "fix:code": "yarn test:code --fix",
+    "fix:other": "yarn test:other --write",
+    "lint-staged": "lint-staged",
+    "postinstall": "husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks",
+    "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
+    "prettier": "prettier --ignore-path=.gitignore",
+    "test": "yarn test:code && yarn test:lib && yarn test:other",
+    "test:lib": "mocha -b",
+    "test:code": "standard src/**/*.js test/**/*.js",
+    "test:other": "yarn prettier --list-different \"**/*.{json,md,yml}\""
   },
   "repository": {
     "type": "git",
@@ -36,8 +44,17 @@
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "dotenv": "8.2.0",
+    "husky": "6.0.0",
+    "lint-staged": "11.0.0",
     "mocha": "8.2.1",
     "nock": "13.0.5",
+    "pinst": "2.1.6",
+    "prettier": "2.3.1",
+    "shx": "0.3.3",
     "standard": "16.0.3"
+  },
+  "lint-staged": {
+    "*.js": "standard --fix",
+    "*.{json,md,yml}": "yarn prettier --write"
   }
 }

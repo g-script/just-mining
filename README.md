@@ -15,7 +15,6 @@ Node.js wrapper around [Just Mining][justmining]’s API.
 - [:scroll: Methods][methods]
 - [:beetle: Debugging][debugging]
 - [:game_die: Running tests][running-tests]
-- [:busts_in_silhouette: Contributing][contributing]
 - [:1234: Versioning][versioning]
 
 ## :floppy_disk: Installation
@@ -33,23 +32,26 @@ yarn add just-mining
 ## :beginner: Usage
 
 ```js
-const JM = require('just-mining')
+const JM = require("just-mining");
 
-const client = new JM({ apiKey: 'YOUR_API_KEY' })
+const client = new JM({ apiKey: "YOUR_API_KEY" });
 
-await JM.walletAddresses.list()
-await JM.hardwares.get('bobs', 12345)
-await JM.get('all')
-await JM.get(['masternodes', 'operations'])
+await JM.walletAddresses.list();
+await JM.hardwares.get("bobs", 12345);
+await JM.get("all");
+await JM.get(["masternodes", "operations"]);
 await JM.get({
-  walletAddresses: 'all',
+  walletAddresses: "all",
   clouds: [12345, 67890],
-  hardwares: ['bobs', {
-    type: 'asics',
-    id: 12345
-  }],
-  stakings: 'KAVA'
-})
+  hardwares: [
+    "bobs",
+    {
+      type: "asics",
+      id: 12345,
+    },
+  ],
+  stakings: "KAVA",
+});
 ```
 
 [Back to top][top]
@@ -112,7 +114,7 @@ Get an owned cloud contract.
 **Example**
 
 ```js
-await client.clouds.get(571)
+await client.clouds.get(571);
 // => {
 //   id: 571,
 //   status: 'inactive',
@@ -145,7 +147,7 @@ Get all owned cloud contracts.
 **Example**
 
 ```js
-await client.clouds.list()
+await client.clouds.list();
 // => [{
 //   id: 571,
 //   status: 'inactive',
@@ -187,6 +189,7 @@ Get an owned machine.
 - _(Object)_: Returns an object describing the machine
 
 **Throws**
+
 - if `type` is not one of **asics** or **bobs**
 - if `type` is not a string
 - if `id` is not provided
@@ -196,7 +199,7 @@ Get an owned machine.
 **Example**
 
 ```js
-await client.hardwares.get('bobs', 580099)
+await client.hardwares.get("bobs", 580099);
 // => {
 //   serial: 580099,
 //   status: 'inactive',
@@ -219,9 +222,11 @@ Get all machines. If `type` is provided, get all machines of this type.
 **Returns**
 
 If `type` is provided:
+
 - _(Array)_: Returns an array of objects describing machines
 
 If `type` is omitted:
+
 - _(Object)_: Returns an object with properties matching machine types and containing an array of objects describing machines
 
 **Throws**
@@ -231,7 +236,7 @@ If `type` is omitted:
 **Example**
 
 ```js
-await client.hardwares.list()
+await client.hardwares.list();
 // => {
 //   asics: [{
 //     id: 330,
@@ -257,7 +262,7 @@ await client.hardwares.list()
 //   }]
 // }
 
-await client.hardwares.list('bobs')
+await client.hardwares.list("bobs");
 // => [{
 //   serial: 580099,
 //   status: 'inactive',
@@ -294,7 +299,7 @@ Get an owned masternode.
 **Example**
 
 ```js
-await client.masternodes.get(9208)
+await client.masternodes.get(9208);
 // => {
 //   id: 9208,
 //   status: 'active',
@@ -323,7 +328,7 @@ Get all owned masternodes.
 **Example**
 
 ```js
-await client.masternodes.list()
+await client.masternodes.list();
 // => [{
 //   id: 9208,
 //   status: 'active',
@@ -366,7 +371,7 @@ Get an operation (withdrawal, exchange, debit or credit).
 **Example**
 
 ```js
-await client.operations.get(5412)
+await client.operations.get(5412);
 // => {
 //   id: 5412,
 //   type: 'withdraw',
@@ -398,7 +403,7 @@ Get all account operations.
 **Example**
 
 ```js
-await client.operations.list()
+await client.operations.list();
 // => [{
 //   id: 3010,
 //   type: 'withdraw',
@@ -464,7 +469,7 @@ Get an owned staking contract.
 **Example**
 
 ```js
-await client.stakings.get('KAVA')
+await client.stakings.get("KAVA");
 // => {
 //   currencyCode: 'KAVA',
 //   amount: 75,
@@ -513,7 +518,7 @@ Get all owned staking contracts.
 **Example**
 
 ```js
-await client.stakings.list()
+await client.stakings.list();
 // => [{
 //   currencyCode: 'KAVA',
 //   amount: 75,
@@ -576,6 +581,7 @@ Get an owned address.
 - _(Object)_: Returns an object describing the address
 
 **Throws**
+
 - if `currencyCode` is not provided
 - if `currencyCode` is not a string
 - if `id` is not provided
@@ -585,7 +591,7 @@ Get an owned address.
 **Example**
 
 ```js
-await client.walletAddresses.get('BNB', 11402)
+await client.walletAddresses.get("BNB", 11402);
 // => {
 //   id: 11402,
 //   currencyCode: 'BNB',
@@ -613,7 +619,7 @@ Get all addresses. If `currencyCode` is provided, returns all addresses for this
 **Example**
 
 ```js
-await client.walletAddresses.list()
+await client.walletAddresses.list();
 // => [{
 //   id: 11401,
 //   currencyCode: 'ETH',
@@ -630,7 +636,7 @@ await client.walletAddresses.list()
 //   memo: 'memo',
 // }]
 
-await client.walletAddresses.list('ETH')
+await client.walletAddresses.list("ETH");
 // => [{
 //   id: 11401,
 //   currencyCode: 'ETH',
@@ -664,7 +670,7 @@ Get an owned wallet.
 **Example**
 
 ```js
-await client.wallets.get('ETH')
+await client.wallets.get("ETH");
 // => {
 //   currencyCode: 'ETH',
 //   balance: 0.03190596
@@ -688,7 +694,7 @@ Get all owned wallets.
 **Example**
 
 ```js
-await client.wallets.list()
+await client.wallets.list();
 // => [{
 //   currencyCode: 'ZEC',
 //   balance: 0.00160223
@@ -716,17 +722,12 @@ You can target a specific resource debug logs by being more specific: `DEBUG=jus
 This package is tested against multiple different scenarios with [Mocha][mocha] and [chai][chai] (through `expect` BDD style). It also rely on [nock][nock] to mock API responses.
 
 In order to run tests locally, you have to:
+
 - clone this repository
 - install development dependencies with `yarn install`
 - run tests with `yarn test`
 
 > _Tests are run in bail mode. This means that whenever a test fails, all following tests are aborted._
-
-[Back to top][top]
-
-## :busts_in_silhouette: Contributing
-
-See [CONTRIBUTING.md][contribute].
 
 [Back to top][top]
 
@@ -757,8 +758,6 @@ This project uses [SemVer][semver] for versioning. For the versions available, s
 [mocha]: https://mochajs.org
 [chai]: https://www.chaijs.com/api/bdd/
 [nock]: https://github.com/nock/nock
-[contributing]: #busts_in_silhouette-contributing
-[contribute]: https://github.com/g-script/just-mining/blob/main/CONTRIBUTING.md
 [versioning]: #1234-versioning
 [semver]: http://semver.org
 [repotags]: https://github.com/g-script/just-mining/tags
