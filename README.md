@@ -15,7 +15,6 @@ Node.js wrapper around [Just Mining][justmining]’s API.
 - [:scroll: Methods][methods]
 - [:beetle: Debugging][debugging]
 - [:game_die: Running tests][running-tests]
-- [:busts_in_silhouette: Contributing][contributing]
 - [:1234: Versioning][versioning]
 
 ## :floppy_disk: Installation
@@ -732,12 +731,6 @@ In order to run tests locally, you have to:
 
 [Back to top][top]
 
-## :busts_in_silhouette: Contributing
-
-See [CONTRIBUTING.md][contribute].
-
-[Back to top][top]
-
 ## :1234: Versioning
 
 This project uses [SemVer][semver] for versioning. For the versions available, see the [tags on this repository][repotags].
@@ -765,8 +758,6 @@ This project uses [SemVer][semver] for versioning. For the versions available, s
 [mocha]: https://mochajs.org
 [chai]: https://www.chaijs.com/api/bdd/
 [nock]: https://github.com/nock/nock
-[contributing]: #busts_in_silhouette-contributing
-[contribute]: https://github.com/g-script/just-mining/blob/main/CONTRIBUTING.md
 [versioning]: #1234-versioning
 [semver]: http://semver.org
 [repotags]: https://github.com/g-script/just-mining/tags
