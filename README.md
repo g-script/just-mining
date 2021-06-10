@@ -1,21 +1,36 @@
-# just-mining
+# just-mining <!-- omit in toc -->
 
-Node.js wrapper around [Just Mining][justmining]’s API.
+Node.js wrapper around [Just Mining](https://www.just-mining.com)’s API.
 
-[![Actions Status][actionshield]][actions]
-[![npm][npmshield]][npmpackage]
-[![JavaScript Style Guide][standardshield]][standard]
-[![license][licenseshield]][license]
+[![Actions Status](https://github.com/g-script/just-mining/workflows/Lint%20and%20test%20JS%20files/badge.svg)](https://github.com/g-script/just-mining/actions)
+[![npm](https://img.shields.io/npm/v/just-mining.svg)](https://www.npmjs.com/package/just-mining)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/g-script/just-mining/blob/main/LICENSE)
 
-## :book: Table of contents
+## :book: Table of contents <!-- omit in toc -->
 
-- [:floppy_disk: Installation][installation]
-- [:beginner: Usage][usage]
-- [:building_construction: Constructor][constructor]
-- [:scroll: Methods][methods]
-- [:beetle: Debugging][debugging]
-- [:game_die: Running tests][running-tests]
-- [:1234: Versioning][versioning]
+- [:floppy_disk: Installation](#floppy_disk-installation)
+- [:beginner: Usage](#beginner-usage)
+- [:building_construction: Constructor](#building_construction-constructor)
+- [:scroll: Methods](#scroll-methods)
+  - [client.clouds.get(id)](#clientcloudsgetid)
+  - [client.clouds.list()](#clientcloudslist)
+  - [client.hardwares.get(type, id)](#clienthardwaresgettype-id)
+  - [client.hardwares.list(type)](#clienthardwareslisttype)
+  - [client.masternodes.get(id)](#clientmasternodesgetid)
+  - [client.masternodes.list()](#clientmasternodeslist)
+  - [client.operations.get(id)](#clientoperationsgetid)
+  - [client.operations.list()](#clientoperationslist)
+  - [client.stakings.get(currencyCode)](#clientstakingsgetcurrencycode)
+  - [client.stakings.list()](#clientstakingslist)
+  - [client.walletAddresses.get(currencyCode, id)](#clientwalletaddressesgetcurrencycode-id)
+  - [client.walletAddresses.list(currencyCode)](#clientwalletaddresseslistcurrencycode)
+  - [client.wallets.get(currencyCode)](#clientwalletsgetcurrencycode)
+  - [client.wallets.list()](#clientwalletslist)
+- [:beetle: Debugging](#beetle-debugging)
+- [:game_die: Running tests](#game_die-running-tests)
+- [:busts_in_silhouette: Contributing](#busts_in_silhouette-contributing)
+- [:1234: Versioning](#1234-versioning)
 
 ## :floppy_disk: Installation
 
@@ -61,7 +76,7 @@ await JM.get({
 When instanciating the constructor, you have to provide parameters as an object with following properties :
 
 - `apiKey` (required): API key provided by Just Mining.
-  - You can get yours by going to [your account parameters][jmaccountparamapi], under the API tab.
+  - You can get yours by going to [your account parameters](https://www.just-mining.com/dashboard/account/api), under the API tab.
 - `version` (optional): target a specific version of Just Mining’s API.
   - As of today, the only available version is `v1`.
 
@@ -711,7 +726,7 @@ await client.wallets.list();
 
 ## :beetle: Debugging
 
-This library uses [`debug` package][debugpkg] internally. You can enable debug logs by setting the `DEBUG` environment variable to `just-mining:*`.
+This library uses [`debug` package](https://npmjs.com/package/debug) internally. You can enable debug logs by setting the `DEBUG` environment variable to `just-mining:*`.
 
 You can target a specific resource debug logs by being more specific: `DEBUG=just-mining:v1:walletAddresses`.
 
@@ -719,7 +734,7 @@ You can target a specific resource debug logs by being more specific: `DEBUG=jus
 
 ## :game_die: Running tests
 
-This package is tested against multiple different scenarios with [Mocha][mocha] and [chai][chai] (through `expect` BDD style). It also rely on [nock][nock] to mock API responses.
+This package is tested against multiple different scenarios with [Mocha](https://mochajs.org) and [chai](https://www.chaijs.com/api/bdd/) (through `expect` BDD style). It also relies on [nock](https://github.com/nock/nock) to mock API responses.
 
 In order to run tests locally, you have to:
 
@@ -731,33 +746,16 @@ In order to run tests locally, you have to:
 
 [Back to top][top]
 
-## :1234: Versioning
+## :busts_in_silhouette: Contributing
 
-This project uses [SemVer][semver] for versioning. For the versions available, see the [tags on this repository][repotags].
+See [CONTRIBUTING.md](https://github.com/g-script/just-mining/blob/main/CONTRIBUTING.md).
 
 [Back to top][top]
 
-[justmining]: https://www.just-mining.com
-[actionshield]: https://github.com/g-script/just-mining/workflows/Lint%20and%20test%20JS%20files/badge.svg
-[actions]: https://github.com/g-script/just-mining/actions
-[npmshield]: https://img.shields.io/npm/v/just-mining.svg
-[npmpackage]: https://www.npmjs.com/package/just-mining
-[standardshield]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
-[standard]: https://standardjs.com
-[licenseshield]: https://img.shields.io/github/license/mashape/apistatus.svg
-[license]: https://github.com/g-script/just-mining/blob/main/LICENSE
+## :1234: Versioning
+
+This project uses [SemVer](http://semver.org) for versioning. For the versions available, see the [tags on this repository](https://github.com/g-script/just-mining/tags).
+
+[Back to top][top]
+
 [top]: #book-table-of-contents
-[installation]: #floppy_disk-installation
-[usage]: #beginner-usage
-[constructor]: #building_construction-constructor
-[jmaccountparamapi]: https://www.just-mining.com/dashboard/account/api
-[methods]: #scroll-methods
-[debugging]: #beetle-debugging
-[debugpkg]: https://npmjs.com/package/debug
-[running-tests]: #game_die-running-tests
-[mocha]: https://mochajs.org
-[chai]: https://www.chaijs.com/api/bdd/
-[nock]: https://github.com/nock/nock
-[versioning]: #1234-versioning
-[semver]: http://semver.org
-[repotags]: https://github.com/g-script/just-mining/tags
