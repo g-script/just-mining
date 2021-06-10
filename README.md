@@ -21,7 +21,7 @@ Node.js wrapper around [Just Mining][justmining]’s API.
 ## :floppy_disk: Installation
 
 ```bash
-npm install just-mining --save # or yarn add just-mining
+yarn add just-mining
 ```
 
 **Node.js version 6 or higher is required.**
@@ -717,8 +717,8 @@ This package is tested against multiple different scenarios with [Mocha][mocha] 
 
 In order to run tests locally, you have to:
 - clone this repository
-- install development dependencies with `npm install` (or `yarn install`)
-- run tests with `npm test` (or `yarn test`)
+- install development dependencies with `yarn install`
+- run tests with `yarn test`
 
 > _Tests are run in bail mode. This means that whenever a test fails, all following tests are aborted._
 
